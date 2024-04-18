@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workout Remixer App</title>
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <div class="container">
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <p class="aqua">Add sidebar content here</p>
+    </div>
+
+    <div class="header">
+        <span class="menu" onclick="openNav()">☰</span>
+        <h1>Workout Remixer App</h1>
+        <button onclick="logout()">Log out</button>
+    </div>
+
+    <div class="container content">
+        <!-- Your main content -->
+    </div>
+
+    <div class="button">
+      <nav>
+        <button>My Routines</button>
+        <button>Default Routines</button>
+        <button>List of Exercises</button>
+      </nav>
+    </div>
+
+    <section>
+      <h2>My Routines</h2>
+      <ul class="routine-list">
+        <li class="routine-item">
+          <span>Name of Routine</span>
+          <div>
+            <button>Edit</button>
+            <button>Delete</button>
+          </div>
+        </li>
+        <li class="routine-item">
+          <span>Name of Routine</span>
+          <div>
+            <button>Edit</button>
+            <button>Delete</button>
+          </div>
+        </li>
+        <!-- Add more list items here -->
+      </ul>
+    </section>
+  </div>
+
+  <script>
+
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.querySelector(".container").style.paddingLeft = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.querySelector(".container").style.paddingLeft = "0";
+    }
+
+    </script>
+    
+</body>
+</html>
