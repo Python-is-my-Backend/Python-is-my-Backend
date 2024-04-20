@@ -1,0 +1,246 @@
+{% extends "layout.html" %}
+
+{% block title %}Workout Remixer App{% endblock %}
+
+{% block page %}Workout Remixer App{% endblock %}
+
+{% block link%}
+    <ul id="nav-mobile" class="right">
+        <li><a href="/">Home Page</a></li>
+    </ul>
+{% endblock %}
+
+{% block styles %}
+
+.outside{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    
+}
+
+.create-routine-css{
+    margin-top: 3vh;
+    background-color: pink;
+    width: 95vw;
+    height: 85vh;
+    padding: 3vh;
+    border-style: solid; 
+    border-color: black;
+}
+
+section.col.s12.m3.list{
+  display:flex;
+  flex-direction: column;
+  margin-left: 1vh; 
+  height: 67vh; 
+  background-color: lightblue; 
+  padding: 0%;
+  border-style: solid; 
+  border-color: black;
+}
+
+section.col.s12.m12.workout-list{
+  overflow-y:scroll; 
+  height: 58vh; 
+  border-style: 
+  solid none none none; 
+  border-color: black;
+}
+
+div.list-workout-heading{
+  text-align: center; 
+  background-color: aquamarine; 
+  height: 9vh;
+  padding: 3vh
+}
+
+section.col.s12.m5.description{
+  display:flex; 
+  flex-direction: column; 
+  margin-left: 3vw; 
+  margin-right: 3vw;
+  background-color: lightblue; 
+  height: 67vh;
+  padding: 0%;
+  border-style: solid; 
+  border-color: black;
+}
+
+div.description-heading{
+  text-align: center; 
+  background-color: aquamarine; 
+  height: 9vh;
+  padding: 3vh
+}
+
+div#workout-detail{
+  padding:1em;
+  height: 49vh;
+  border-style: solid none none none;
+  border-color: black;
+}
+
+div.row.input{
+  display: flex;
+  flex-direction: row;
+
+}
+
+select{
+  margin-left:3vw;
+}
+
+div.select-options{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 15vw;
+  margin-left: 3vw;
+}
+
+div.submit-button{
+  padding:1em;
+  align: right;
+  margin-left: 7vw;
+}
+
+section.col.s12.m3.my.routine{
+  display: flex; 
+  flex-direction: column; 
+  height: 67vh; 
+  background-color: lightblue; 
+  padding: 0%; 
+  border-style: solid; 
+  border-color: black;
+}
+
+div.your-routine-heading{
+  text-align: center; 
+  background-color: aquamarine; 
+  height: 9vh;
+  padding: 3vh
+}
+
+section.col.s12.m12.routine-list{
+  overflow-y:scroll; 
+  height: 40vh;
+  border-style: solid none solid none; 
+  border-color: black;
+}
+
+form.create-routine{
+  text-align: center; 
+  background-color: aquamarine; 
+  height: 18vh;
+  padding: 2%;
+}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="outside">
+    <div class="create-routine-css">
+        <div class="row initial-content" style="display:flex; flex-direction: row;">
+          <h5>CREATE WORKOUT ROUTINE</h5>
+        </div>
+        
+        <div class="row">
+            <section  class="col s12 m3 list">
+
+              <div class="list-workout-heading">
+                LIST OF WORKOUT
+              </div>
+              <section class="col s12 m12 workout-list">
+                <div class="column">
+                  <div class="col s12 m12">
+                    <div class="card">
+                      <div class="card-content black-text">
+                        <span class="card-title">WORKOUT NAME</span>
+                        <p>Description</p>
+                      </div>
+                      <div class="card-action">
+                        <a href="">View Details</a>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              </section>
+
+              <!-- <ul class="collection">
+
+                  {% for student in students %}    
+                      
+                  {% endfor %}
+              </ul> -->
+            </section>
+
+            <section class="col s12 m5 description">
+              <div class="description-heading">
+                DESCRIPTION OF WORKOUT
+              </div>
+                
+
+                <div id="workout-detail">
+                    <div class="card-content">
+                        <span class="card-title">WORKOUT NAME</span>
+                        <p style="display: block;">Type:  </p>
+                        <p style="display: block;">Muscle: </p>
+                        <p style="display: block;">Equipment:  </p>
+                        <p style="display: block;">Difficulty:  </p>
+                        <p style="display: block;">Instructions:  </p>
+                    </div>
+                    
+                </div>
+
+                <div class="row input">
+                  <div class="select-options">
+                    <select name="quantity">
+                      <option value="0">Quantity</option>
+                      <option value="1">10</option>
+                      <option value="2">15</option>
+                      <option value="3">20</option>
+                    </select>
+                    <select name="sets">
+                      <option value="0">Sets</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                  <div class="submit-button">
+                      <button id="addWorkout-button" class="blue text-white btn" >ADD TO ROUTINE</button>
+                  </div>
+                </div>
+            </section>
+
+            <section  class="col s12 m3 my routine">
+
+              <div class="your-routine-heading">
+                YOUR WORKOUT ROUTINE
+              </div>
+
+              <section class="col s12 m12 routine-list">
+                
+              </section>
+
+              <form class="create-routine">
+                <label for = "name" style="color:black; font-size: 1em;">Name of Routine</label>
+                <input name = "routine-name" type = "text" >
+                <button id="createRoutine-button" class="blue text-white btn center">CREATE ROUTINE</button>
+              </form>
+
+              <!-- <ul class="collection">
+
+                  {% for workout in myworkouts %}    
+                      
+                  {% endfor %}
+              </ul> -->
+            </section>
+    
+        </div>
+    </div>
+   
+</div>
+{% endblock %}
