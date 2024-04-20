@@ -1,40 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workout Remixer App</title>
-<link rel="stylesheet" href="home.css">
-</head>
-<body>
+{% extends "layout.html" %}
 
-    <div class="container">
+{% block title %}Workout Remixer App{% endblock %}
 
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <p class="aqua">Add sidebar content here</p>
+{% block page %}Workout Remixer App{% endblock %}
+
+{% block link%}
+    <ul id="nav-mobile" class="right">
+        <li><a href="/">Home Page</a></li>
+        <li><a href="/logout">Log out</li>
+    </ul>
+    <ul id="nav-mobile" class="left">
+      <span class="menu" onclick="openNav()">☰</span>
+    </ul>
+{% endblock %}
+
+{% block styles %}
+.menu {
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.7s;
+  padding-top: 60px;
+}
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.aqua{
+  color: aqua;
+}
+
+.outside{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  
+}
+
+.create-routine-css{
+  margin-top: 3vh;
+  background-color: pink;
+  width: 95vw;
+  height: 85vh;
+  border-style: solid; 
+  border-color: black;
+}
+
+div.my-routine-heading{
+  display:flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  background-color: lightblue; 
+  height: 10vh;
+}
+
+button{
+
+}
+
+a#my-routines{
+  margin-top:3vh;
+  font-size: 1.5em;
+}
+
+a#default-routines{
+  margin-left: 25vw;
+  margin-top:3vh;
+  margin-right: 25vw;
+  font-size: 1.5em;
+}
+
+a#list-of-exercises{
+  margin-top:3vh;
+  font-size: 1.5em;
+}
+
+section.my-routine-content{
+  justify-content: center;
+  align-items:center;
+}
+
+.routine-list {
+  list-style-type: none;
+  padding: 10;
+  background-color: lightgreen;
+  width: 80vw;
+  align-items:center;
+}
+
+.routine-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-style: none none solid none;
+  border-color: 1px #000;
+  padding: 10px;
+  width: 80vw;
+}
+{% endblock %}
+
+
+{% block content %}
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <p class="aqua">Add sidebar content here</p>
+</div>
+
+<div class="outside">
+  <div class="create-routine-css">
+    <div class="my-routine-heading">
+      <a id="my-routines" href="">My Routines</a>
+      <a id="default-routines" href="">Default Routines</a>
+      <a id="list-of-exercises" href="">List of Exercises</a>
     </div>
 
-    <div class="header">
-        <span class="menu" onclick="openNav()">☰</span>
-        <h1>Workout Remixer App</h1>
-        <button onclick="logout()">Log out</button>
-    </div>
 
-    <div class="container content">
-        <!-- Your main content -->
-    </div>
-
-    <div class="button">
-      <nav>
-        <button>My Routines</button>
-        <button>Default Routines</button>
-        <button>List of Exercises</button>
-      </nav>
-    </div>
-
-    <section>
-      <h2>My Routines</h2>
+    <section class="my-routine-content">
+      <div class="home-my-routine" style="text-align: center;">
+        <h4>My Routines</h4>
+      </div>
+      
       <ul class="routine-list">
         <li class="routine-item">
           <span>Name of Routine</span>
@@ -54,20 +165,19 @@
       </ul>
     </section>
   </div>
+</div>
 
-  <script>
+<script>
 
-    function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-      document.querySelector(".container").style.paddingLeft = "250px";
-    }
-    
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-      document.querySelector(".container").style.paddingLeft = "0";
-    }
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.querySelector(".container").style.paddingLeft = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.querySelector(".container").style.paddingLeft = "0";
+  }
 
-    </script>
-    
-</body>
-</html>
+</script>
+{% endblock %}
