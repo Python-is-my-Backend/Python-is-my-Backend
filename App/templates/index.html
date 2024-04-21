@@ -3,11 +3,231 @@
 {% block page %}Workout Remixer App{% endblock %}
 
 {{ super() }}
+{% block styles %}
+
+.header2{
+    color: #fff;
+}
+
+body{
+    background: linear-gradient(to right, #64CCC5, #176B87, #001C30), url('https://as1.ftcdn.net/v2/jpg/00/93/55/88/1000_F_93558844_zsJSg3nGtgXX0HSToxWJeBjEt1OIyTHo.jpg');
+    height: 100vh;
+    background-size: cover;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+div.outside{
+    display:flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+div.welcome-page-css{
+    margin-top: 10vh;
+    width: 66vw;
+    height: 70vh;
+    background: transparent;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+div.welcome-message{
+    display: flex;
+    flex-direction:row;
+    width: 66vw;
+    height: 70vh;
+}
+
+div.words{
+    width: 40vw;
+    height:70vh;
+    
+    background: transparent;
+    color: white;
+    align-text: center;
+}
+
+div.welcome{
+    justify-content: center;
+    padding: 10px;
+}
+
+p{
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+}
+
+div.signup-login{
+    display:flex;
+    flex-direction: column;
+    width: 26vw;
+    height:70vh;
+    border-color: white;
+    border-style: none none none solid;
+    background: transparent;
+    color: white;
+    <!-- background-color:pink; -->
+}
+
+div.choice{
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+    border-color: white;
+    border-style: none none solid none;
+}
+
+a{
+    color: white;
+}
+
+div.signup-link{
+    margin-right: 10vw;
+    color: white;
+}
+
+div.login-link{
+    color: white;
+}
+
+.login-box{
+    width: 400px;
+    padding: 30px;
+    height: 60vh;
+}
+
+.login-box h4{
+    margin: 0 0 25px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.login-box .user-box{
+    position: relative;
+}
+
+.login-box .user-box input{
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background-color: transparent;
+}
+
+.login-box .user-box label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~label{
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+}
+
+.login-box form a{
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 20px;
+    letter-spacing: 4px;
+}
+
+.login-box form a:hover{
+    background-color: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4;
+}
+
+{% endblock %}
 
 {% block content %}
-    <h1>Flask MVC</h1>
-    {% if is_authenticated %}
-        <p> Welcome {{current_user.username}} </p>
-    {% endif %}
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
+<div class="outside">
+    <div class="welcome-page-css">
+        <div class="welcome-message">
+            <div class="words">
+                <div class="welcome">
+                    <p>WELCOME!!</p>
+                </div>  
+            </div>
+            <div class="signup-login">
+                <div class="choice">
+                    <div class="signup-link">
+                        <a href="">Sign Up</a>
+                    </div>
+                    <div class="login-link">
+                        <a href="">Login</a>
+                    </div>
+                </div>
+                <!-- put an if statement here to get the relevant form -->
+                <div class="login-box">
+                    <h3>Login</h3>
+                    <form>
+                        <div class="user-box">
+                            <input type="text" name="" required="">
+                            <label>Username</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="password" name="" required="">
+                            <label>Password</label>
+                        </div>
+                        <a href="#">Login</a>
+                    </form>
+                </div>
+
+                <!-- <div class="login-box">
+                    <h4>Sign Up</h4>
+                    <form>
+                        <div class="user-box">
+                            <input type="email" name="" required="">
+                            <label>Email</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="" required="">
+                            <label>Username</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="password" name="" required="">
+                            <label>Password</label>
+                        </div>
+                        <a href="#">Sign Up</a>
+                    </form>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+
+</div>
 {% endblock %}
