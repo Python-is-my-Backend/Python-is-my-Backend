@@ -58,33 +58,35 @@
   display: flex;
   align-items: center;
   justify-content: center; 
-  
+  background-color: #DAFFFB;
 }
 
 .create-routine-css{
   margin-top: 3vh;
-  background-color: pink;
+  background-color: lightblue;
   width: 95vw;
-  height: 85vh;
-  border-style: solid; 
+  height: 85vh; 
   border-color: black;
+  border-radius 10px;
 }
 
 div.my-routine-heading{
   display:flex; 
   flex-direction: row; 
   justify-content: center; 
-  background-color: lightblue; 
+  background-color: #001C30; 
   height: 10vh;
+  color: white;
 }
 
-button{
-
+span{
+  color: white;
+  font-size: 100%;
 }
-
 a#my-routines{
   margin-top:3vh;
   font-size: 1.5em;
+  color: white;
 }
 
 a#default-routines{
@@ -92,11 +94,13 @@ a#default-routines{
   margin-top:3vh;
   margin-right: 25vw;
   font-size: 1.5em;
+  color: white;
 }
 
 a#list-of-exercises{
   margin-top:3vh;
   font-size: 1.5em;
+  color: white;
 }
 
 section.my-routine-content{
@@ -107,9 +111,11 @@ section.my-routine-content{
 .routine-list {
   list-style-type: none;
   padding: 10;
-  background-color: lightgreen;
+  background-color: #001C30;
   width: 80vw;
   align-items:center;
+  border-radius: 25px;
+  
 }
 
 .routine-item {
@@ -117,10 +123,10 @@ section.my-routine-content{
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  border-style: none none solid none;
-  border-color: 1px #000;
   padding: 10px;
   width: 80vw;
+  border-radius: 10%;
+
 }
 {% endblock %}
 
@@ -150,15 +156,8 @@ section.my-routine-content{
         <li class="routine-item">
           <span>Name of Routine</span>
           <div>
-            <button>Edit</button>
-            <button>Delete</button>
-          </div>
-        </li>
-        <li class="routine-item">
-          <span>Name of Routine</span>
-          <div>
-            <button>Edit</button>
-            <button>Delete</button>
+            <button class="btn waves-effect waves-light">Edit</button>
+            <button class="btn waves-effect waves-light">Delete</button>
           </div>
         </li>
         <!-- Add more list items here -->
