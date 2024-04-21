@@ -1,13 +1,35 @@
 {% extends "layout.html" %}
 {% block title %}Workout Remixer App{% endblock %}
-{% block page %}Workout Remixer App{% endblock %}
+
 
 {{ super() }}
+{% block styles %}
+.header2{
+    color: #fff;
+
+}
+body{
+    background: linear-gradient(to right, #64CCC5, #176B87, #001C30), url('https://as1.ftcdn.net/v2/jpg/00/93/55/88/1000_F_93558844_zsJSg3nGtgXX0HSToxWJeBjEt1OIyTHo.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    height: 100vh;
+    text-align: center;
+}
+p{
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+{% endblock %}
+
 
 {% block content %}
-    <h1>Flask MVC</h1>
+
+    <h2 class="header2">Transform Your Fitness with Workout Remixer! </h2>
     {% if is_authenticated %}
         <p> Welcome {{current_user.username}} </p>
     {% endif %}
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
+    <p>Please login to access your routines</p>
 {% endblock %}
