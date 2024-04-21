@@ -7,11 +7,11 @@ class Exercise(db.Model):
     muscle = db.Column(db.String(255), nullable=False)
     equipment = db.Column(db.String(255), nullable=False)
     difficulty = db.Column(db.String(255), nullable=False)
-    instructions = db.Column(db.String(255), nullable=False) 
+    instructions = db.Column(db.String, nullable=False) 
 
     def __init__(self, name, type, muscle, equipment, difficulty, instructions):
-        self.name = name,
-        self.type = type,
+        self.name = name
+        self.type = type
         self.muscle = muscle
         self.equipment = equipment
         self.difficulty = difficulty
@@ -27,4 +27,3 @@ class Exercise(db.Model):
             'difficulty': self.difficulty,
             'instructions': self.instructions
         }
-       
