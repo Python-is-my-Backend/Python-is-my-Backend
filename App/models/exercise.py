@@ -9,6 +9,14 @@ class Exercise(db.Model):
     difficulty = db.Column(db.String(255), nullable=False)
     instructions = db.Column(db.String(255), nullable=False) 
 
+    def __init__(self, name, type, muscle, equipment, difficulty, instructions):
+        self.name = name,
+        self.type = type,
+        self.muscle = muscle
+        self.equipment = equipment
+        self.difficulty = difficulty
+        self.instructions = instructions
+        
     def get_json(self):
         return {
             'exercise_id': self.id,
@@ -19,4 +27,4 @@ class Exercise(db.Model):
             'difficulty': self.difficulty,
             'instructions': self.instructions
         }
-    
+       
