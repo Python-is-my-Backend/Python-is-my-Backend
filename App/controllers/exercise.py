@@ -3,18 +3,21 @@ from App.models import Exercise
 from App.database import db
 
 def parse_exercises():
-    api_url = 'https://api.api-ninjas.com/v1/exercises?muscle'
-    response = requests.get(api_url, headers={'X-Api-Key': '34ECD4LQjf7k/KSQABanUg==kRrodx9CuPCV9pAH'})
-    exercises = json.loads(response.text)
+  api_url = 'https://api.api-ninjas.com/v1/exercises?muscle'
+  exercises = requests.get(api_url, headers={'X-Api-Key': '34ECD4LQjf7k/KSQABanUg==kRrodx9CuPCV9pAH'}).json()
+  
+  for exercise in exercises:
+    new_exercise = Exercise(
+        name=exercise['name'],
+        type=exercise['type'],
+        muscle=exercise['muscle'],
+        equipment=exercise['equipment'],
+        difficulty=exercise['difficulty'],
+        instructions=exercise['instructions']
+    )
 
-    for i in exercises:
-        exercise = Exercise(
-            name = exercises[i]['name'],
-            type = exercises[i]['type'],
-            muscle = exercises[i]['muscle'],
-            equipment = exercises[i]['equipment'],
-            difficulty = exercises[i]['difficulty'],
-            instructions = exercises[i]['instructions']
-        )
-        db.session.add(exercise)
-    db.session.commit()
+    db.session.add(new_exercise)
+  db.session.commit()
+
+def get_all_exercises():
+  return Exercise.query.all()
