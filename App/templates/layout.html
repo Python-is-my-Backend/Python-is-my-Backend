@@ -17,7 +17,7 @@
       <nav class="purple">
           <div class="nav-wrapper">
               <a href="#!" class="brand-logo center">{% block page %}{% endblock %}</a>
-              <ul id="nav-mobile" class="left">
+<!--               <ul id="nav-mobile" class="left">
                   <li><a href="/">Home</a></li>
                   <li><a href="/users">Users Jinja</a></li>
                   {% if is_authenticated %}
@@ -41,8 +41,8 @@
                   </div>
                   <button type="submit" class="btn waves-effect waves-light">Login</button>
               </form>
-              {% endif %}
-              
+              {% endif %} -->
+              {% block link %}{% endblock %}
           </div>
       </nav>
       <style>
