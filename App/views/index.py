@@ -4,7 +4,7 @@ from App.controllers import create_user
 
 index_views = Blueprint('index_views', __name__, template_folder='../templates')
 
-from App.controllers.exercise import ( parse_exercises, get_all_exercises )
+from App.controllers.exercise import ( parse_exercises, find_exercises, get_all_exercises_by_muscle, get_all_exercises )
 
 @index_views.route('/', methods=['GET'])
 def index_page():
@@ -24,5 +24,5 @@ def health_check():
 
 @index_views.route('/home', methods=['GET'])
 def home_page():
-    exercises = get_all_exercises()
+    exercises = get_all_exercises_by_muscle('adductors')
     return render_template("home.html", exercises=exercises)
