@@ -22,4 +22,5 @@ def health_check():
 
 @index_views.route('/home', methods=['GET'])
 def home_page():
-    return render_template("home.html")
+    exercises = Exercise.query.all()
+    return render_template("home.html", exercises=exercises)
