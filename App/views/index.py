@@ -40,3 +40,6 @@ def add_routine(exercise_id):
     create_routine(exercise_id)
     return redirect(request.referrer)
 
+@index_views.route('/createRoutine', methods=['GET'])
+def create_user_routine_page():
+    return render_template('createRoutine.html')
