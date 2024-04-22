@@ -1,4 +1,4 @@
-import requests, json 
+from flask import request, json 
 from App.models import Exercise
 from App.database import db
 
