@@ -1,4 +1,4 @@
-from App.models import User
+from App.models import User, Routine
 from App.database import db
 
 def create_user(username, password):
@@ -31,11 +31,11 @@ def update_user(id, username):
         return db.session.commit()
     return None
 
-def create_routine(self, exercise_id, name):
+def create_routine(exercise_id):
     exercise = Routine.query.get(exercise_id)
     if exercise:
         try:
-            new_exercise = Routine(name, self.id, exercise_id)
+            new_exercise = Routine(exercise.name, self.id, exercise_id)
             db.session.add(new_exercise)
             db.session.commit()
             return new_exercise
