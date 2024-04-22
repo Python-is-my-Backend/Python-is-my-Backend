@@ -6,11 +6,7 @@
 
 {% block link%}
     <ul id="nav-mobile" class="right">
-        <li><a href="/">Home Page</a></li>
         <li><a href="/logout">Log out</li>
-    </ul>
-    <ul id="nav-mobile" class="left">
-      <span class="menu" onclick="openNav()">☰</span>
     </ul>
 {% endblock %}
 
@@ -19,37 +15,14 @@
   margin-bottom: 20px;
   margin-left: 40px;
 }
+body{
+  background: linear-gradient(to right, #64CCC5, #176B87, #001C30), url('https://as1.ftcdn.net/v2/jpg/00/93/55/88/1000_F_93558844_zsJSg3nGtgXX0HSToxWJeBjEt1OIyTHo.jpg');
+  height: 100vh;
+  background-size: cover;
+  display:flex;
+  flex-direction: column;
+}
 
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.7s;
-  padding-top: 60px;
-}
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
 .aqua{
   color: aqua;
 }
@@ -58,7 +31,6 @@
   display: flex;
   align-items: center;
   justify-content: center; 
-  background-color: #DAFFFB;
 }
 
 .create-routine-css{
@@ -85,17 +57,11 @@ span{
 }
 a#my-routines{
   margin-top:3vh;
+  margin-right: 10vw;
   font-size: 1.5em;
   color: white;
 }
 
-a#default-routines{
-  margin-left: 25vw;
-  margin-top:3vh;
-  margin-right: 25vw;
-  font-size: 1.5em;
-  color: white;
-}
 
 a#list-of-exercises{
   margin-top:3vh;
@@ -133,17 +99,12 @@ section.my-routine-content{
 
 {% block content %}
 
-<div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <p class="aqua">Add sidebar content here</p>
-</div>
 
 <div class="outside">
   <div class="create-routine-css">
     <div class="my-routine-heading">
-      <a id="my-routines" href="">My Routines</a>
-      <a id="default-routines" href="">Default Routines</a>
-      <a id="list-of-exercises" href="">List of Exercises</a>
+      <a id="my-routines" href="/home">My Routines</a>
+      <a id="list-of-exercises" href="/exercises">List of Exercises</a>
     </div>
 
 
@@ -166,17 +127,4 @@ section.my-routine-content{
   </div>
 </div>
 
-<script>
-
-  function openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.querySelector(".container").style.paddingLeft = "250px";
-  }
-  
-  function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.querySelector(".container").style.paddingLeft = "0";
-  }
-
-</script>
 {% endblock %}

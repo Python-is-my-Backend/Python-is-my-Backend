@@ -8,6 +8,7 @@ from App.controllers.exercise import ( parse_exercises, find_exercises, get_all_
 
 @index_views.route('/', methods=['GET'])
 def index_page():
+    init()
     return render_template('index.html')
 
 @index_views.route('/init', methods=['GET'])

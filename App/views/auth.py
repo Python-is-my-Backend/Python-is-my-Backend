@@ -43,6 +43,13 @@ def logout_action():
     unset_jwt_cookies(response)
     return response
 
+@auth_views.route('/', methods=['GET'])
+def user_login_page():
+    return render_template('index.html')
+
+@auth_views.route('/login', methods=['GET'])
+def index_page():
+    return render_template('index.html')
 '''
 API Routes
 '''
@@ -67,3 +74,9 @@ def logout_api():
     response = jsonify(message="Logged Out!")
     unset_jwt_cookies(response)
     return response
+
+@auth_views.route('/home', methods=['GET'])
+@jwt_required()
+def home_page():
+    exercises = get_all_exercises_by_muscle('adductors')
+    return render_template("home.html", exercises=exercises)
