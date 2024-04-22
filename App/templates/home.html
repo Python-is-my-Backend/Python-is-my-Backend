@@ -116,16 +116,17 @@ section.my-routine-content{
         <h4>My Routines</h4>
       </div>
       
+      {% for routine in routines %}
       <ul class="routine-list">
         <li class="routine-item">
-          <span>Name of Routine</span>
+          <span>{{routine.name}}</span>
           <div>
             <button class="btn waves-effect waves-light">Edit</button>
             <button class="btn waves-effect waves-light">Delete</button>
           </div>
         </li>
-        <!-- Add more list items here -->
       </ul>
+      {% endfor %}
     </section>
   </div>
 </div>
