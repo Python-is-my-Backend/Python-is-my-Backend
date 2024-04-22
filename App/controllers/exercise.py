@@ -42,3 +42,6 @@ def get_all_exercises_by_muscle(muscle):
 
 def get_all_exercises():
   return Exercise.query.all()
+
+def get_exercise_by_id(id):
+    return Exercise.query.filter_by(id=id).first()
