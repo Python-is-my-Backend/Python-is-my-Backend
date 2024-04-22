@@ -1,17 +1,183 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All Exercises</title>
-</head>
-<body>
-    <h1>All Exercises</h1>
-    <ul>
-        {% for exercise in exercises %}
-        <li>{{ exercise.name }} - <a href="">Add to Routine</a></li>
-        {% else %}
-        <li>No exercises available.</li>
-        {% endfor %}
+{% extends "layout.html" %}
+
+{% block title %}Workout Remixer App{% endblock %}
+
+{% block page %}Workout Remixer App{% endblock %}
+
+{% block link%}
+    <ul id="nav-mobile" class="right">
+        <li><a href="/">Home Page</a></li>
+        <li><a href="/logout">Log out</li>
     </ul>
-</body>
-</html>
+    <ul id="nav-mobile" class="left">
+      <span class="menu" onclick="openNav()">☰</span>
+    </ul>
+{% endblock %}
+
+{% block styles %}
+.menu {
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.7s;
+  padding-top: 60px;
+}
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.aqua{
+  color: aqua;
+}
+
+.outside{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  background-color: #DAFFFB;
+}
+
+.create-routine-css{
+  margin-top: 3vh;
+  background-color: lightblue;
+  width: 95vw;
+  height: 85vh; 
+  border-color: black;
+  border-radius 10px;
+}
+
+div.my-routine-heading{
+  display:flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  background-color: #001C30; 
+  height: 10vh;
+  color: white;
+}
+
+span{
+  color: white;
+  font-size: 100%;
+}
+a#my-routines{
+  margin-top:3vh;
+  font-size: 1.5em;
+  color: white;
+}
+
+a#default-routines{
+  margin-left: 25vw;
+  margin-top:3vh;
+  margin-right: 25vw;
+  font-size: 1.5em;
+  color: white;
+}
+
+a#list-of-exercises{
+  margin-top:3vh;
+  font-size: 1.5em;
+  color: white;
+}
+
+section.my-routine-content{
+  justify-content: center;
+  align-items:center;
+}
+
+.routine-list {
+  list-style-type: none;
+  padding: 10;
+  background-color: #001C30;
+  width: 80vw;
+  align-items:center;
+  border-radius: 25px;
+  
+}
+
+.routine-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 80vw;
+  border-radius: 10%;
+
+}
+{% endblock %}
+
+
+{% block content %}
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <p class="aqua">Add sidebar content here</p>
+</div>
+
+<div class="outside">
+  <div class="create-routine-css">
+    <div class="my-routine-heading">
+        <a id="my-routines" href="">My Routines</a>
+        <a id="default-routines" href="">Default Routines</a>
+        <a id="list-of-exercises" href="/exercises">List of Exercises</a>
+    </div>
+
+
+    <section class="my-routine-content">
+      <div class="home-my-routine" style="text-align: center;">
+        <h4>List of Exercises</h4>
+      </div>
+    
+      {% for exercise in exercises %}
+      <ul class="routine-list">
+        <li class="routine-item">
+          <span>{{exercise.name}}</span>
+          <div>
+            <button id="view" class="btn waves-effect waves-light">View Details</button>
+            <button class="btn waves-effect waves-light">Add</button>
+          </div>
+        </li>
+      </ul>
+      {% endfor %}
+    </section>
+  </div>
+</div>
+
+<script>
+
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.querySelector(".container").style.paddingLeft = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.querySelector(".container").style.paddingLeft = "0";
+  }
+
+</script>
+{% endblock %}
