@@ -127,7 +127,10 @@ section.my-routine-content{
           <span>{{exercise.name}}</span>
           <div>
             <button id="view" class="btn waves-effect waves-light">View Details</button>
-            <button class="btn waves-effect waves-light">Add</button>
+            <form action="/add_routine/{{exercise.id}}" method="post">
+                <input type="hidden" name="exercise_id" value="{{ exercise.id }}">
+                <button type="submit" class="btn waves-effect waves-light">Add</button>
+            </form>
           </div>
         </li>
       </ul>
