@@ -25,7 +25,8 @@ def health_check():
 
 @index_views.route('/home', methods=['GET'])
 def home_page():
-    return render_template("home.html")
+    routines = get_all_routines()
+    return render_template("home.html", routines=routines)
 
 @index_views.route('/exercises', methods=['GET'])
 def list_exercises():
