@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Exercises</title>
+</head>
+<body>
+    <h1>All Exercises</h1>
+    <ul>
+        {% for exercise in exercises %}
+        <li>{{ exercise.name }} - <a href="">Add to Routine</a></li>
+        {% else %}
+        <li>No exercises available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
