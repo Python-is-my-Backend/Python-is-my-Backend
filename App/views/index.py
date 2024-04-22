@@ -24,5 +24,9 @@ def health_check():
 
 @index_views.route('/home', methods=['GET'])
 def home_page():
-    exercises = get_all_exercises_by_muscle('adductors')
-    return render_template("home.html", exercises=exercises)
+    return render_template("home.html")
+
+@index_views.route('/exercises', methods=['GET'])
+def list_exercises():
+    exercises = get_all_exercises()
+    return render_template("exercises.html", exercises=exercises)
