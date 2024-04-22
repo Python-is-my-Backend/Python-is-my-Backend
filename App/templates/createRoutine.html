@@ -5,12 +5,23 @@
 {% block page %}Workout Remixer App{% endblock %}
 
 {% block link%}
-    <ul id="nav-mobile" class="right">
+    <ul id="nav-mobile" class="left">
         <li><a href="/">Home Page</a></li>
     </ul>
+    <ul id="nav-mobile" class="right">
+      <li><a href="/logout">Log Out</a></li>
+  </ul>
 {% endblock %}
 
 {% block styles %}
+
+body{
+  background: linear-gradient(to right, #64CCC5, #176B87, #001C30), url('https://as1.ftcdn.net/v2/jpg/00/93/55/88/1000_F_93558844_zsJSg3nGtgXX0HSToxWJeBjEt1OIyTHo.jpg');
+  height: 100vh;
+  background-size: cover;
+  display:flex;
+  flex-direction: column;
+}
 
 .outside{
     display: flex;
@@ -21,12 +32,12 @@
 
 .create-routine-css{
     margin-top: 3vh;
-    background-color: pink;
+    background: transparent;
     width: 95vw;
     height: 85vh;
     padding: 3vh;
     border-style: solid; 
-    border-color: black;
+    border-color: white;
 }
 
 section.col.s12.m3.list{
@@ -37,7 +48,7 @@ section.col.s12.m3.list{
   background-color: lightblue; 
   padding: 0%;
   border-style: solid; 
-  border-color: black;
+  border-color: white;
 }
 
 section.col.s12.m12.workout-list{
@@ -45,12 +56,12 @@ section.col.s12.m12.workout-list{
   height: 58vh; 
   border-style: 
   solid none none none; 
-  border-color: black;
+  border-color: white;
 }
 
 div.list-workout-heading{
   text-align: center; 
-  background-color: aquamarine; 
+  background-color: #64CCC5; 
   height: 9vh;
   padding: 3vh
 }
@@ -64,12 +75,12 @@ section.col.s12.m5.description{
   height: 67vh;
   padding: 0%;
   border-style: solid; 
-  border-color: black;
+  border-color: white;
 }
 
 div.description-heading{
   text-align: center; 
-  background-color: aquamarine; 
+  background-color: #64CCC5; 
   height: 9vh;
   padding: 3vh
 }
@@ -78,7 +89,7 @@ div#workout-detail{
   padding:1em;
   height: 49vh;
   border-style: solid none none none;
-  border-color: black;
+  border-color: white;
 }
 
 div.row.input{
@@ -112,12 +123,12 @@ section.col.s12.m3.my.routine{
   background-color: lightblue; 
   padding: 0%; 
   border-style: solid; 
-  border-color: black;
+  border-color: white;
 }
 
 div.your-routine-heading{
   text-align: center; 
-  background-color: aquamarine; 
+  background-color: #64CCC5; 
   height: 9vh;
   padding: 3vh
 }
@@ -126,12 +137,12 @@ section.col.s12.m12.routine-list{
   overflow-y:scroll; 
   height: 40vh;
   border-style: solid none solid none; 
-  border-color: black;
+  border-color: white;
 }
 
 form.create-routine{
   text-align: center; 
-  background-color: aquamarine; 
+  background-color: #64CCC5; 
   height: 18vh;
   padding: 2%;
 }
@@ -142,7 +153,7 @@ form.create-routine{
 {% block content %}
 <div class="outside">
     <div class="create-routine-css">
-        <div class="row initial-content" style="display:flex; flex-direction: row;">
+        <div class="row initial-content" style="display:flex; flex-direction: row; color: white; justify-content: center;">
           <h5>CREATE WORKOUT ROUTINE</h5>
         </div>
         
@@ -170,7 +181,7 @@ form.create-routine{
 
               <!-- <ul class="collection">
 
-                  {% for student in students %}    
+                  {% for workout in exercises %}    
                       
                   {% endfor %}
               </ul> -->
