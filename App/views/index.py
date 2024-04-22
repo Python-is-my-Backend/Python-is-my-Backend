@@ -1,10 +1,10 @@
 from flask import Blueprint, redirect, render_template, request, send_from_directory, jsonify
 from App.models import db
 from App.controllers import create_user
-
+from App.controllers.user import (create_routine, remove_routine, rename_routine)
 index_views = Blueprint('index_views', __name__, template_folder='../templates')
 
-from App.controllers.exercise import ( parse_exercises, find_exercises, get_all_exercises_by_muscle, get_all_exercises )
+from App.controllers.exercise import ( parse_exercises, find_exercises, get_all_exercises_by_muscle, get_all_exercises, get_exercise_by_id )
 
 @index_views.route('/', methods=['GET'])
 def index_page():
@@ -32,7 +32,9 @@ def list_exercises():
     exercises = get_all_exercises()
     return render_template("exercises.html", exercises=exercises)
 
-@index_views.route('/createRoutine', methods=['GET'])
-def create_user_routine_page():
-    return render_template('createRoutine.html')
+@index_views.route('/add_routine/<int:exercise_id>', methods=['POST'])
+def add_routine(exercise_id):
+    data = request.form
+    create_routine(exercise_id)
+    return redirect(request.referrer)
 
