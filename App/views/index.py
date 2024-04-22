@@ -2,6 +2,7 @@ from flask import Blueprint, redirect, render_template, request, send_from_direc
 from App.models import db
 from App.controllers import create_user
 from App.controllers.user import (create_routine, remove_routine, rename_routine)
+from App.controllers.routine import (get_all_routines)
 index_views = Blueprint('index_views', __name__, template_folder='../templates')
 
 from App.controllers.exercise import ( parse_exercises, find_exercises, get_all_exercises_by_muscle, get_all_exercises, get_exercise_by_id )
