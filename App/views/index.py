@@ -31,3 +31,8 @@ def home_page():
 def list_exercises():
     exercises = get_all_exercises()
     return render_template("exercises.html", exercises=exercises)
+
+@index_views.route('/createRoutine', methods=['GET'])
+def create_user_routine_page():
+    return render_template('createRoutine.html')
+
